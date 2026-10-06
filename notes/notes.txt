@@ -2,3 +2,16 @@ int a ---> int is a built in data type.
 student a ----> student is a user defined datatype.
 display (s) ----> s object.
 int  add(parameters are passed here....)
+
+class student:
+  consturctor -------> when object is created consturctor is implicitly called.
+  rollno
+  name
+  city
+  email
+  getdata()
+  display()
+
+
+student s1
+    s1 getdata(10,"abc","pqr"...)

@@ -1,5 +1,3 @@
-# singly linear linked list
-
 class Node:
     def __init__(self, val):
         self.data = val
@@ -24,15 +22,23 @@ class LinkedList:
             print(temp.data)
             temp = temp.next
 
+    def count(self):
+        temp = self.head
+        count = 0
+
+        while temp:
+            count += 1
+            temp = temp.next
+
+        return count
+
+
 list = LinkedList()
 
-n1 = Node(10)
-n2 = Node(20)
-n3 = Node(30)
-
-list.append(n1)
-list.append(n2)
-list.append(n3)
+list.append(Node(10))
+list.append(Node(20))
+list.append(Node(30))
 list.append(Node(40))
 
 list.print()
+print("Count:", list.count())

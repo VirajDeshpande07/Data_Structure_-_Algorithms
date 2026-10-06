@@ -1,0 +1,17 @@
+A linked list is a sequence of items, which are connected together via links.
+It is second most used data structure.
+
+Important terms:
+Node : Individual element in the linked list.
+Data : Each node of a linked list can store an element called Data.
+Next : A link or pointer to the next link is called next.
+Head : A linked list contains the link to the first node called Head.
+
+         0  1  2  3  4
+eg: A = [11|22|33|44|45]
+
+Basic Operations:
+create
+insert node
+delete node
+display element

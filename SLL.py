@@ -42,3 +42,11 @@ list.append(Node(40))
 
 list.print()
 print("Count:", list.count())
+
+class LinkedList:
+    def append (self, new_node):
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = new_node
+        

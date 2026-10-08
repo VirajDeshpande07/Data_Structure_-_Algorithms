@@ -18,3 +18,11 @@ class LinkedList:
             while temp.next is not None:
                 temp = temp.next
             temp.next = new_node
+
+    def delete(self, pos):
+        # Delete first node
+        if pos == 1:
+            self.head = self.head.next
+            return
+
+       

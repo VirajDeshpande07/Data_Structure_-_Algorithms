@@ -8,6 +8,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    # Insert node at end
     def append(self, data):
         new_node = Node(data)
 
@@ -15,27 +16,50 @@ class LinkedList:
             self.head = new_node
         else:
             temp = self.head
+
             while temp.next is not None:
                 temp = temp.next
+
             temp.next = new_node
 
-    def delete(self, pos):
+    # Delete node by value
+    def delete(self, value):
+        if self.head is None:
+            print("List is empty")
+            return
+
         # Delete first node
-        if pos == 1:
+        if self.head.data == value:
             self.head = self.head.next
+            print("Node deleted")
             return
 
         temp = self.head
-        p = 1
 
-        # Move to node before the position
-        while p < pos - 1:
+        while temp.next is not None:
+            if temp.next.data == value:
+                temp.next = temp.next.next
+                print("Node deleted")
+                return
+
             temp = temp.next
-            p += 1
 
-        # Delete the node
-        temp.next = temp.next.next
+        print("Value not found")
 
+    # Reverse linked list
+    def reverse(self):
+        prev = None
+        current = self.head
+
+        while current is not None:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+
+        self.head = prev
+
+    # Display linked list
     def display(self):
         temp = self.head
 
@@ -47,19 +71,24 @@ class LinkedList:
 
 
 # Create linked list
-list = LinkedList()
+ll = LinkedList()
 
-list.append(10)
-list.append(20)
-list.append(30)
-list.append(40)
-list.append(50)
+ll.append(10)
+ll.append(20)
+ll.append(30)
+ll.append(40)
 
-print("Before deletion:")
-list.display()
+print("Original list:")
+ll.display()
 
-# Delete node at position 3
-list.delete(3)
+# Delete node
+ll.delete(30)
 
 print("After deletion:")
-list.display()
+ll.display()
+
+# Reverse list
+ll.reverse()
+
+print("After reversing:")
+ll.display()

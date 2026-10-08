@@ -25,4 +25,41 @@ class LinkedList:
             self.head = self.head.next
             return
 
-       
+        temp = self.head
+        p = 1
+
+        # Move to node before the position
+        while p < pos - 1:
+            temp = temp.next
+            p += 1
+
+        # Delete the node
+        temp.next = temp.next.next
+
+    def display(self):
+        temp = self.head
+
+        while temp is not None:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+
+        print("None")
+
+
+# Create linked list
+ll = LinkedList()
+
+ll.append(10)
+ll.append(20)
+ll.append(30)
+ll.append(40)
+ll.append(50)
+
+print("Before deletion:")
+ll.display()
+
+# Delete node at position 3
+ll.delete(3)
+
+print("After deletion:")
+ll.display()

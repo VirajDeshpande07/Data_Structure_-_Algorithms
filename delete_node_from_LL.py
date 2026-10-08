@@ -47,19 +47,19 @@ class LinkedList:
 
 
 # Create linked list
-ll = LinkedList()
+list = LinkedList()
 
-ll.append(10)
-ll.append(20)
-ll.append(30)
-ll.append(40)
-ll.append(50)
+list.append(10)
+list.append(20)
+list.append(30)
+list.append(40)
+list.append(50)
 
 print("Before deletion:")
-ll.display()
+list.display()
 
 # Delete node at position 3
-ll.delete(3)
+list.delete(3)
 
 print("After deletion:")
-ll.display()
+list.display()

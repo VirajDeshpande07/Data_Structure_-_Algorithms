@@ -110,4 +110,23 @@ class LinkedList:
 
         temp.next = temp.next.next
 
-   
+    def reverse(self):
+        prev = None
+        curr = self.head
+
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+
+        self.head = prev
+
+    def consecutive_sums(self):
+        temp = self.head
+        while temp and temp.next:
+            print(temp.data + temp.next.data, end=" ")
+            temp = temp.next
+        print()
+
+

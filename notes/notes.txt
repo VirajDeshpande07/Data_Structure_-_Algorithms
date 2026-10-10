@@ -15,3 +15,8 @@ class student:
 
 student s1
     s1 getdata(10,"abc","pqr"...)
+
+
+    homework : print sum of 2 consecutive nodes in SLL
+    head->5->10->15->-10->50
+    o/p->15,25,5,40

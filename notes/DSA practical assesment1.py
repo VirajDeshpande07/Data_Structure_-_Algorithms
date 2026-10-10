@@ -130,3 +130,33 @@ class LinkedList:
         print()
 
 
+
+list = LinkedList()
+
+
+list.insert(10, 1)
+list.insert(20, 2)
+list.insert(30, 3)
+list.insert(40, 4)
+list.insert(50, 5)
+
+print("Original linked list:")
+list.display()
+
+print("After inserting 25 at position 3:")
+list.insert(25, 3)
+list.display()
+
+print("Middle node:")
+list.middle()
+
+print("After deleting node at position 2:")
+list.delete(2)
+list.display()
+
+print("Reversed linked list:")
+list.reverse()
+list.display()
+
+print("Sum of consecutive nodes:")
+list.consecutive_sums()

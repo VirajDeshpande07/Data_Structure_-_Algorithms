@@ -83,4 +83,31 @@ class LinkedList:
             temp = temp.next
         print()
 
-    
+    def middle(self):
+        slow = fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        if slow:
+            print(slow.data)
+
+    def delete(self, pos):
+        if self.head is None:
+            return
+
+        if pos == 1:
+            self.head = self.head.next
+            return
+
+        temp = self.head
+        for _ in range(pos - 2):
+            if temp is None:
+                return
+            temp = temp.next
+
+        if temp is None or temp.next is None:
+            return
+
+        temp.next = temp.next.next
+
+   

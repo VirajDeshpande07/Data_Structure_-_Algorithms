@@ -28,15 +28,28 @@ class LinkedList:
         new_node.next = temp.next
         temp.next = new_node
 
-   
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-print("After deleting node at position 2:")
-list.delete(2)
-list.display()
+    def insert(self, data, pos=None):
+        new_node = Node(data)
 
-print("Reversed linked list:")
-list.reverse()
-list.display()
+        if pos is None or pos == 1:
+            new_node.next = self.head
+            self.head = new_node
+            return
 
-print("Sum of consecutive nodes:")
-list.consecutive_sums()
+        temp = self.head
+        for _ in range(pos - 2):
+            if temp is None:
+                return
+            temp = temp.next
+
+        if temp is None:
+            return
+
+        new_node.next = temp.next
+        temp.next = new_node
+
+    

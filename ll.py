@@ -53,6 +53,33 @@ class LinkedList:
 
         prev.next = slow.next
 
+    # delete first node:
+    def delete_first(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+
+        self.head = self.head.next
+        print("First node deleted.")
+
+    #delete last node:
+    def delete_last(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+
+        if self.head.next is None:
+            self.head = None
+            print("Last node deleted.")
+            return
+
+        temp = self.head
+        while temp.next and temp.next.next:
+            temp = temp.next
+
+        temp.next = None
+        print("Last node deleted.")
+
 
 # Create linked list
 ll = LinkedList()

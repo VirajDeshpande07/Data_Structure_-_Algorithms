@@ -22,4 +22,14 @@ class LinkedList:
 
         temp.next = new_node
 
-    
+    # Display linked list
+    def display(self):
+        temp = self.head
+
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+
+        print("None")
+
+   

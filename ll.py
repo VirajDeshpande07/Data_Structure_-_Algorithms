@@ -54,3 +54,19 @@ class LinkedList:
         prev.next = slow.next
 
 
+# Create linked list
+ll = LinkedList()
+
+ll.append(10)
+ll.append(20)
+ll.append(30)
+ll.append(40)
+ll.append(50)
+
+print("Original linked list:")
+ll.display()
+
+ll.delete_middle()
+
+print("After deleting middle node:")
+ll.display()

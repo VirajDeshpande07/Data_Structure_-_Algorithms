@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -8,7 +9,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    # Create linked list by adding nodes at the end
+    # Add node at the end
     def append(self, data):
         new_node = Node(data)
 
@@ -40,6 +41,7 @@ class LinkedList:
 
         if self.head.next is None:
             self.head = None
+            print("Middle node deleted.")
             return
 
         slow = self.head
@@ -52,8 +54,9 @@ class LinkedList:
             fast = fast.next.next
 
         prev.next = slow.next
+        print("Middle node deleted.")
 
-    # delete first node:
+    # Delete first node
     def delete_first(self):
         if self.head is None:
             print("Linked list is empty")
@@ -62,7 +65,7 @@ class LinkedList:
         self.head = self.head.next
         print("First node deleted.")
 
-    #delete last node:
+    # Delete last node
     def delete_last(self):
         if self.head is None:
             print("Linked list is empty")
@@ -74,7 +77,8 @@ class LinkedList:
             return
 
         temp = self.head
-        while temp.next and temp.next.next:
+
+        while temp.next.next:
             temp = temp.next
 
         temp.next = None

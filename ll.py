@@ -41,7 +41,6 @@ class LinkedList:
 
         if self.head.next is None:
             self.head = None
-            print("Middle node deleted.")
             return
 
         slow = self.head
@@ -54,7 +53,6 @@ class LinkedList:
             fast = fast.next.next
 
         prev.next = slow.next
-        print("Middle node deleted.")
 
     # Delete first node
     def delete_first(self):
@@ -63,7 +61,6 @@ class LinkedList:
             return
 
         self.head = self.head.next
-        print("First node deleted.")
 
     # Delete last node
     def delete_last(self):
@@ -73,7 +70,6 @@ class LinkedList:
 
         if self.head.next is None:
             self.head = None
-            print("Last node deleted.")
             return
 
         temp = self.head
@@ -82,7 +78,6 @@ class LinkedList:
             temp = temp.next
 
         temp.next = None
-        print("Last node deleted.")
 
 
 # Create linked list
@@ -97,7 +92,17 @@ ll.append(50)
 print("Original linked list:")
 ll.display()
 
+# Delete middle node
 ll.delete_middle()
+print("\\nAfter deleting middle node:")
+ll.display()
 
-print("After deleting middle node:")
+# Delete first node
+ll.delete_first()
+print("\\nAfter deleting first node:")
+ll.display()
+
+# Delete last node
+ll.delete_last()
+print("\\nAfter deleting last node:")
 ll.display()

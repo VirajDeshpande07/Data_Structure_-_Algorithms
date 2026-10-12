@@ -79,6 +79,17 @@ class LinkedList:
 
         temp.next = None
 
+# delete alternate nodes in singly linked list
+    def delete_alternate(self):
+        if self.head is None:
+            return
+
+        temp = self.head
+
+        while temp and temp.next:
+            temp.next = temp.next.next
+            temp = temp.next
+
 
 # Create linked list
 ll = LinkedList()
@@ -105,4 +116,9 @@ ll.display()
 # Delete last node
 ll.delete_last()
 print("\\nAfter deleting last node:")
+ll.display()
+
+# Delete alternate nodes
+ll.delete_alternate()
+print("\\nAfter deleting alternate nodes:")
 ll.display()

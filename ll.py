@@ -32,4 +32,25 @@ class LinkedList:
 
         print("None")
 
-   
+    # Delete middle node
+    def delete_middle(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+
+        if self.head.next is None:
+            self.head = None
+            return
+
+        slow = self.head
+        fast = self.head
+        prev = None
+
+        while fast and fast.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+
+        prev.next = slow.next
+
+

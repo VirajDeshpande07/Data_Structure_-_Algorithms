@@ -18,6 +18,7 @@ class LinkedList:
 
         temp = self.head
         for _ in range(pos - 2):
+            
             if temp is None:
                 return
             temp = temp.next

@@ -47,5 +47,4 @@ cll.append(10)
 cll.append(20)
 cll.append(30)
 cll.append(40)
-
 cll.display()

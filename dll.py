@@ -13,7 +13,7 @@ class LinkedList:
                 temp=temp.next
                 temp.next=new_node
                 new_node.prev=temp
-            else: #first node
+            else: # only executed first node
                 self.head=new_node
     def print(self):
         temp=self.head

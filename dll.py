@@ -1,7 +1,10 @@
+
 class Node:
     def __init__(self, value):
         self.data = value
         self.next = None
+        self.prev = None
+
 
 class LinkedList:
     def __init__(self):
@@ -14,31 +17,68 @@ class LinkedList:
             temp = self.head
             while temp.next:
                 temp = temp.next
+
             temp.next = new_node
+            new_node.prev = temp
+
+    def Insert(self, new_node, position):
+        if position == 0:
+            new_node.next = self.head
+
+            if self.head:
+                self.head.prev = new_node
+
+            self.head = new_node
+            return
+
+        temp = self.head
+        for i in range(position - 1):
+            if temp is None:
+                print("Invalid position")
+                return
+            temp = temp.next
+
+        if temp is None:
+            print("Invalid position")
+            return
+
+        new_node.next = temp.next
+        new_node.prev = temp
+
+        if temp.next:
+            temp.next.prev = new_node
+
+        temp.next = new_node
 
     def print(self):
         temp = self.head
         print("List elements:")
+
         while temp:
-            print(temp.data, end=" -> ")
+            print(temp.data, end=" <-> ")
             temp = temp.next
+
         print("None")
 
- #delete a node from the doubly linked list
     def delete(self, value):
         temp = self.head
-        if temp.data == value: #first node to delete
-            self.head=self.head.next
-            self.head.prev=None
+
+        while temp and temp.data != value:
+            temp = temp.next
+
+        if temp is None:
+            print("Value is not present in the list")
+            return
+
+        if temp.prev:
+            temp.prev.next = temp.next
         else:
-            while(temp.data!=value and temp):
-                temp=temp.next
-                if temp==None:
-                    print("value is not present in the list")
-                    return
-            temp.prev.next=temp.next
-            temp=None
-    
+            self.head = temp.next
+
+        if temp.next:
+            temp.next.prev = temp.prev
+
+        print("Deleted:", value)
 
 
 list1 = LinkedList()
@@ -47,4 +87,8 @@ list1.append(Node(33))
 list1.append(Node(44))
 list1.append(Node(55))
 
+list1.Insert(Node(5), 0)
+
+list1.print()
+list1.delete(5)
 list1.print()

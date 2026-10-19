@@ -24,6 +24,22 @@ class LinkedList:
             temp = temp.next
         print("None")
 
+ #delete a node from the doubly linked list
+    def delete(self, value):
+        temp = self.head
+        if temp.data == value: #first node to delete
+            self.head=self.head.next
+            self.head.prev=None
+        else:
+            while(temp.data!=value and temp):
+                temp=temp.next
+                if temp==None:
+                    print("value is not present in the list")
+                    return
+            temp.prev.next=temp.next
+            temp=None
+    
+
 
 list1 = LinkedList()
 list1.append(Node(22))

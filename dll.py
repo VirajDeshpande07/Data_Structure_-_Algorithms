@@ -21,6 +21,15 @@ class LinkedList:
             temp.next = new_node
             new_node.prev = temp
 
+    def count_occ(self,num):
+        temp=self.head
+        count=0
+        while temp:
+            if temp.data==num:
+                count+=1
+            temp=temp.next
+        return count
+
     def Insert(self, new_node, position):
         if position == 0:
             new_node.next = self.head
@@ -92,3 +101,4 @@ list1.Insert(Node(5), 0)
 list1.print()
 list1.delete(5)
 list1.print()
+print("Occurrences of 5:", list1.count_occ(5))

@@ -21,6 +21,22 @@ class LinkedList:
             temp.next = new_node
             new_node.prev = temp
 
+    #swap first and last node
+    def swap_first_last(self):
+        if self.head is None or self.head.next is None:
+            return
+
+        first_node = self.head
+        last_node = self.head
+
+        while last_node.next:
+            last_node = last_node.next
+
+        if first_node == last_node:
+            return
+
+        first_node.data, last_node.data = last_node.data, first_node.data
+
     def count_occ(self,num):
         temp=self.head
         count=0
@@ -102,3 +118,6 @@ list1.print()
 list1.delete(5)
 list1.print()
 print("Occurrences of 33:", list1.count_occ(33))
+print("After swapping first and last nodes:")
+list1.swap_first_last()
+list1.print()

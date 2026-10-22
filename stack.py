@@ -24,6 +24,18 @@ class Stack:
         self.top = self.top.next
         return temp.data
 
+    def reverse(self):
+        prev = None
+        current = self.top
+
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+
+        self.top = prev
+
     def print(self):
         if self.isempty():
             print("Stack is empty!")
@@ -49,4 +61,9 @@ st.print()
 print("Popped element:", st.pop())
 
 print("Stack after pop:")
+st.print()
+
+st.reverse()
+
+print("Stack after reverse:")
 st.print()

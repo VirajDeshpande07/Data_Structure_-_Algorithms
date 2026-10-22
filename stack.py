@@ -24,4 +24,14 @@ class Stack:
         self.top = self.top.next
         return temp.data
 
-    
+    def print(self):
+        if self.isempty():
+            print("Stack is empty!")
+            return
+
+        temp = self.top
+        while temp:
+            print(temp.data)
+            temp = temp.next
+
+

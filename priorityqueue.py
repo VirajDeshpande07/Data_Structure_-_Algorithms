@@ -62,3 +62,28 @@ class PriorityQueue:
 
         print("Patient treated and removed:", temp.name)
 
+    # 4. Display All Patients
+    def display_all(self):
+        if self.front is None:
+            print("Priority queue is empty")
+            return
+
+        temp = self.front
+
+        print("\nWaiting Patients:")
+
+        while temp is not None:
+            if temp.priority == 1:
+                pr = "Critical"
+            elif temp.priority == 2:
+                pr = "Serious"
+            else:
+                pr = "Normal"
+
+            print("Patient ID:", temp.pid,
+                  "Name:", temp.name,
+                  "Priority:", pr)
+
+            temp = temp.next
+
+

@@ -87,3 +87,47 @@ class PriorityQueue:
             temp = temp.next
 
 
+# Create Priority Queue
+pq = PriorityQueue()
+
+# Main Menu
+while True:
+    print("\n===== HOSPITAL EMERGENCY MANAGEMENT =====")
+    print("1. Add Patient")
+    print("2. Display Next Patient")
+    print("3. Remove Patient")
+    print("4. Display All Patients")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        pid = int(input("Enter Patient ID: "))
+        name = input("Enter Patient Name: ")
+
+        print("1. Critical")
+        print("2. Serious")
+        print("3. Normal")
+
+        pr = int(input("Enter Priority: "))
+
+        if pr < 1 or pr > 3:
+            print("Invalid Priority!")
+        else:
+            pq.enqueue(node(pid, name, pr))
+
+    elif choice == 2:
+        pq.display_next()
+
+    elif choice == 3:
+        pq.dequeue()
+
+    elif choice == 4:
+        pq.display_all()
+
+    elif choice == 5:
+        print("Thank You!")
+        break
+
+    else:
+        print("Invalid Choice!")

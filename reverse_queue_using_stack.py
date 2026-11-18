@@ -46,3 +46,19 @@ def q_is_empty(q):
     return len(q.queue) == 0
 
 
+# Main program
+q = Queue()
+
+n = int(input("Enter number of elements: "))
+
+for i in range(n):
+    x = int(input("Enter element: "))
+    q.enqueue(x)
+
+print("Original Queue:")
+q.display()
+
+reverse_queue(q)
+
+print("Reversed Queue:")
+q.display()

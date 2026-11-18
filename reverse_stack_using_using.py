@@ -32,3 +32,15 @@ class Queue:
         return len(self.queue) == 0
 
 
+def reverse_stack(s):
+    q = Queue()
+
+    # Pop elements from stack and enqueue
+    while len(s.stack) > 0:
+        q.enqueue(s.pop())
+
+    # Dequeue elements and push into stack
+    while not q.is_empty():
+        s.push(q.dequeue())
+
+

@@ -19,6 +19,10 @@ class BST:
                         return 
                     else:
                         temp=temp.left
+                elif new_node.data>=temp.data:
+                    if temp.right is None:
+                        temp.right=new_node
+                        return
                 else:
                     if temp.right is None:
                         temp.right=new_node  

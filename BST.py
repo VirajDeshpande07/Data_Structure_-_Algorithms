@@ -26,6 +26,28 @@ class BST:
                         return
                     else:
                         temp=temp.right
+
+    def del_node(self, rt, value):
+        if rt is None:
+            return rt
+        if value<rt.data:
+            rt.left=self.del_node(rt.left, value)
+        elif value>rt.data:
+            rt.right=self.del_node(rt.right, value)
+        else:
+            if rt.left is None:
+                temp=rt.right
+                rt=None
+                return temp
+            elif rt.right is None:
+                temp=rt.left
+                rt=None
+                return temp
+            temp=self.findmin(rt.right)
+            rt.data=temp.data
+            rt.right=self.del_node(rt.right, temp.data)
+        return rt
+
     def inorder(self, rt):
         if rt is None:
             return
@@ -74,3 +96,5 @@ b1.preorder(b1.root)
 print("\nPostorder: ")
 b1.postorder(b1.root)
 b1.findminmax()
+b1.root=b1.del_node(b1.root, 10)
+print("\nInorder after deletion: ") 

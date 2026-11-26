@@ -54,4 +54,13 @@ class BST:
             temp = temp.left
         return temp
 
+    def inorder(self, rt):
+        if rt is None:
+            return
+        else:
+            self.inorder(rt.left)
+            print(rt.data, end=" ")
+            self.count += 1
+            self.inorder(rt.right)
+
     

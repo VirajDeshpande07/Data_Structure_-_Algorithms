@@ -55,8 +55,12 @@ class BST:
         if rt is None:
             print("BST is empty")
             return 
-
-
+        arr=[]
+        cnt=0 #after counting visited node
+        while cnt<len(arr):
+            temp=arr[cnt]
+            cnt+=1
+            print(temp.data, end=" ")
 
 
 b1 = BST()

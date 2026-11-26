@@ -51,6 +51,12 @@ class BST:
             self.count += 1
             self.inorder(rt.right)
 
+    def level_order(self,rt):
+        if rt is None:
+            print("BST is empty")
+            return 
+
+
 
 
 b1 = BST()

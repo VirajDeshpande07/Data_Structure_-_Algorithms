@@ -48,4 +48,10 @@ class BST:
             rt.right = self.delete(rt.right, succ.data)
         return rt
 
+    def get_sucessor(self, rt):
+        temp = rt.right  # Fixed 'temp.right' to 'rt.right'
+        while temp.left is not None:  # Completed the loop
+            temp = temp.left
+        return temp
+
     

@@ -29,3 +29,23 @@ class BST:
                         return
                     else:
                         temp = temp.right
+
+    def delete(self, rt, value):
+        if rt is None:
+            return
+        if value < rt.data:
+            rt.left = self.delete(rt.left, value)
+        elif value > rt.data:
+            rt.right = self.delete(rt.right, value)
+        else:
+            if rt.left is None:  # Node with right child only
+                return rt.right
+            if rt.right is None:  # Node with left child only
+                return rt.left
+            # Node has both Left and right
+            succ = self.get_sucessor(rt)
+            rt.data = succ.data  # Fixed '-' to '='
+            rt.right = self.delete(rt.right, succ.data)
+        return rt
+
+    

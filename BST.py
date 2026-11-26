@@ -30,17 +30,29 @@ class BST:
                     else:
                         temp = temp.right
 
-    def search(self,key):
-        temp=self.root
-        while temp:
-            if temp.data==key:
-                return True
-            elif key<temp.data:
-                temp=temp.left
-            else:
-                temp=temp.right
-        return False
+    def delete(self, rt, value):
+        if rt is None:
+            return
+        if value < rt.data:
+            rt.left = self.delete(rt.left, value)
+        elif value > rt.data:
+            rt.right = self.delete(rt.right, value)
+        else:
+            if rt.left is None:  # Node with right child only
+                return rt.right
+            if rt.right is None:  # Node with left child only
+                return rt.left
+            # Node has both Left and right
+            succ = self.get_sucessor(rt)
+            rt.data = succ.data  # Fixed '-' to '='
+            rt.right = self.delete(rt.right, succ.data)
+        return rt
 
+    def get_sucessor(self, rt):
+        temp = rt.right  # Fixed 'temp.right' to 'rt.right'
+        while temp.left is not None:  # Completed the loop
+            temp = temp.left
+        return temp
 
     def inorder(self, rt):
         if rt is None:
@@ -51,20 +63,32 @@ class BST:
             self.count += 1
             self.inorder(rt.right)
 
-    def level_order(self,rt):
+    def preorder(self, rt):
         if rt is None:
-            print("BST is empty")
-            return 
-        arr=[]
-        cnt=0 #after counting visited node
-        while cnt<len(arr):
-            temp=arr[cnt]
-            cnt+=1
-            print(temp.data, end=" ")
-            if temp.left:
-                arr.append(temp.left)
-            if temp.right:
-                arr.append(temp.right)
+            return
+        else:
+            print(rt.data, end=" ")
+            self.preorder(rt.left)
+            self.preorder(rt.right)
+
+    def postorder(self, rt):
+        if rt is None:
+            return
+        else:
+            self.postorder(rt.left)
+            self.postorder(rt.right)
+            print(rt.data, end=" ")
+
+    def findminmax(self):
+        temp = self.root
+        while temp.left:
+            temp = temp.left
+        print("\nMin: ", temp.data)
+        temp = self.root
+        while temp.right:
+            temp = temp.right
+        print("\nMax: ", temp.data)
+
 
 b1 = BST()
 b1.insert(Node(100))
@@ -76,8 +100,14 @@ b1.insert(Node(300))
 
 print("\nInorder: ")
 b1.inorder(b1.root)
-print("")
+# print("\nNo of nodes: ", b1.count)
+# print("\nPreorder: ")
+# b1.preorder(b1.root)
+# print("\nPostorder: ")
+# b1.postorder(b1.root)
+# b1.findminmax()
 
-print(b1.search(300))
+b1.root = b1.delete(b1.root, 450)
 
-
+print("\nInorder after deleting: ")
+b1.inorder(b1.root)

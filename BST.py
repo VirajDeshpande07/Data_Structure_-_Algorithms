@@ -63,7 +63,8 @@ class BST:
             print(temp.data, end=" ")
             if temp.left:
                 arr.append(temp.left)
-                
+            if temp.right:
+                arr.append(temp.right)
 
 b1 = BST()
 b1.insert(Node(100))
